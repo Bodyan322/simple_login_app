@@ -39,7 +39,6 @@ export default function ProfileScreen({ navigation }: { navigation: any }) {
     logout()
   };
 
-
   if (!data) {
     return null;
   }

@@ -3,6 +3,7 @@ import axios from 'axios';
 export type LoginError = {
   message: string;
 }
+
 export const loginUser = async (username: string, password: string) => {
   try {
     const response = await axios.post('https://dummyjson.com/auth/login', {

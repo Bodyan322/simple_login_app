@@ -7,7 +7,7 @@ interface ClearableTextInputProps extends TextInputProps {
   style?: ViewStyle;
 }
 
-const ClearableTextInput: React.FC<ClearableTextInputProps> = ({ value, onChangeText, style, ...rest }) => {
+const CustomInput: React.FC<ClearableTextInputProps> = ({ value, onChangeText, style, ...rest }) => {
   return (
     <View style={styles.container}>
       <TextInput
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ClearableTextInput;
+export default CustomInput;

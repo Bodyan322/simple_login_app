@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, SafeAreaView} from 'react-native';
+import { View, StyleSheet, SafeAreaView } from 'react-native';
 import GradientButton from "../components/shared/GradientButton";
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {

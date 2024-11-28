@@ -1,11 +1,12 @@
-import {StyleSheet, Text, View} from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import GradientButton from "../shared/GradientButton";
 import React, { useState } from "react";
-import ClearableTextInput from "../shared/CustomInput";
+import CustomInput from "../shared/CustomInput";
 
 interface ILoginFormProps {
   onSubmit: (username: string, password: string) => void;
 }
+
 const LoginForm: React.FC<ILoginFormProps> = ({ onSubmit }) => {
   const [userFields, setUserFields] = useState({
     username: '',
@@ -18,6 +19,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({ onSubmit }) => {
   })
 
   const { username, password} = userFields;
+
   const validateFields = (text: string, fieldName: string) => {
     if (fieldName === 'username' && text.length > 0 && text.length < 4) {
       return 'Username must be at least 4 characters long.';
@@ -45,29 +47,26 @@ const LoginForm: React.FC<ILoginFormProps> = ({ onSubmit }) => {
       setErrors((prevErrors) => ({ ...prevErrors, username: 'Username is required' }));
       return
     }
-
     if (!password) {
       setErrors((prevErrors) => ({ ...prevErrors, password: 'Password is required' }));
       return
     }
-
     if (errors.username || errors.password) {
       return
     }
-
     onSubmit(username, password);
   }
 
   return (
     <View style={styles.container}>
-      <ClearableTextInput
+      <CustomInput
         value={username}
         placeholder="Enter username"
         style={errors.username ? styles.inputError : undefined}
         onChangeText={(text) => handleInputChange(text, 'username')}
       />
       {errors.username && <Text style={styles.errorText}>{errors.username}</Text>}
-      <ClearableTextInput
+      <CustomInput
         value={password}
         placeholder="Enter password"
         style={errors.password ? styles.inputError : undefined}

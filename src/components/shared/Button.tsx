@@ -1,10 +1,12 @@
-import {StyleSheet, Text, TouchableOpacity} from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import React from "react";
+
 interface IButton {
   title: string;
   onPress: () => void;
   disabled?: boolean;
 }
+
 const Button: React.FC<IButton> = ({ title, onPress, disabled}) => (
   <TouchableOpacity
     style={[styles.buttonWrapper, disabled && styles.disabled]}
